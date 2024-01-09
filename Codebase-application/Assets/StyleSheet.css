@@ -1,0 +1,50 @@
+﻿.btn-prime {
+    padding: 8px 20px !important;
+    color: #fff !important;
+    background: #3164ab !important;
+    border-radius: 5px;
+    border: 1px solid #3164ab !important;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: normal;
+    outline: auto;
+    cursor: pointer;
+    outline-style: none;
+    text-align: center;
+    word-break: keep-all;
+}
+.btn-secondary {
+    padding: 8px 20px !important;
+    color: #fff !important;
+    background: #004C54 !important;
+    border-radius: 5px;
+    border: 1px solid #004C54 !important;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: normal;
+    outline: auto;
+    cursor: pointer;
+    outline-style: none;
+    text-align: center;
+    word-break: keep-all;
+}
+.btn-cancel {
+    padding: 8px 20px !important;
+    color: #fff !important;
+    background: #fb7633 !important;
+    border-radius: 5px;
+    border: 1px solid #fb7633 !important;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: normal;
+    outline: auto;
+    cursor: pointer;
+    outline-style: none;
+    text-align: center;
+    word-break: keep-all;
+}
+
+.required-field label::after {
+    content: "*";
+    color: red;
+}

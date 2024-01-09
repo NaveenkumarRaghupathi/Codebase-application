@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<h2 style="color: #fb7633;text-align:center">Welcome to Codebase Solutions</h2>
+
+<h2>Home</h2>
+<br />
+
+<div class="form-group">
+    <div>
+        @Html.ActionLink("Create User", "CreateUser", "Account", null, new { @class = "btn-prime" })
+        @Html.ActionLink("Sign in", "Login", "Account", null, new { @class = "btn-secondary" })
+    </div>
+</div>
+

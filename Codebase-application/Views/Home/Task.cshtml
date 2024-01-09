@@ -1,0 +1,221 @@
+﻿
+@{
+    ViewBag.Title = "Task";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .table, th, td {
+        border: 1px solid black;
+        font-weight: 600;
+        padding: 7px !important;
+    }
+</style>
+<h2 style="color: #fb7633;text-align:center">Welcome to Codebase Solutions</h2>
+
+<h2>Tasks & Results</h2>
+
+<h3>Section-1</h3>
+<br />
+
+<div class="form-horizontal">
+
+    <p style="font-weight: 600;">
+        1.Write a C# program to reverse each word individually without changing its position in the sentence.
+    </p>
+
+    <p>Input - Hello World</p>
+
+    <p>Output:</p>
+
+    <p>Reverse String : @ViewBag.ReverseString</p>
+
+    <p style="font-weight: 600;">
+        2.Write a C# program to find the second largest integer in an array using only one loop.
+    </p>
+
+    <p>Input - 20 30 12 45 9</p>
+
+    <p>Output:</p>
+
+    <p>Second Largest Number : @ViewBag.SecondLageNumber</p>
+
+    <p style="font-weight: 600;">
+        3.Write a C# Sharp program to find the sum of the first 10 natural numbers.
+    </p>
+
+    <p>Output:</p>
+
+    <p>Sum of 10 Natural Number : @ViewBag.NaturalNumber </p>
+    <br />
+
+    <h3>Section-2</h3>
+    <br />
+    <p style="font-weight: 600;">
+        1.Write an SQL query to find the second maximum salary.
+    </p>
+
+    <p>Query1:</p>
+
+    <p>
+        SELECT Salary FROM (
+        SELECT Salary, RANK() OVER (ORDER BY salary DESC) as rank
+        FROM EmployeeSalary
+        ) sub
+        WHERE rank = 2;
+    </p>
+
+    <table>
+        <tr>
+            <th>Salaray</th>
+        </tr>
+        <tr>
+            <td>10000</td>
+        </tr>
+    </table> <br />
+
+    <p>Query2:</p>
+
+    <p>
+        SELECT EmpId,FullName,Salary FROM (
+        SELECT ED.EmpId,ED.FullName,ES.salary, RANK() OVER (ORDER BY salary DESC) as rank
+        FROM EmployeeSalary ES JOIN EmployeeDetails ED
+        ON ED.EmpId = ES.EmpId
+        ) sub
+        WHERE rank = 2;
+    </p>
+
+    <table>
+        <tr>
+            <th>EmpId</th>
+            <th>FullName</th>
+            <th>Salary</th>
+        </tr>
+        <tr>
+            <td>321</td>
+            <td>Walter White</td>
+            <td>10000</td>
+        </tr>
+    </table> <br />
+
+    <p style="font-weight: 600;">
+        2.Write an SQL query to fetch the employees whose name begins with 'J'.
+    </p>
+
+    <p>Query1:</p>
+
+    <p>
+        SELECT * FROM EmployeeDetails WHERE FullName like 'j%'
+    </p>
+
+    <table>
+        <tr>
+            <th>EmpId</th>
+            <th>FullName</th>
+            <th>ManagerId</th>
+            <th>DateOfJoining</th>
+            <th>City</th>
+        </tr>
+        <tr>
+            <td>121</td>
+            <td>John Snow</td>
+            <td>321</td>
+            <td>31/01/2019</td>
+            <td>Toronto</td>
+        </tr>
+    </table> <br />
+
+    <p>Query2:</p>
+
+    <p>
+        SELECT DISTINCT ED.*,ES.Project,ES.Salary,Es.Variable
+        FROM EmployeeDetails ED
+        JOIN EmployeeSalary ES ON ES.EmpId = ED.EmpId
+        WHERE ED.FullName like 'j%'
+    </p>
+
+    <table>
+        <tr>
+            <th>EmpId</th>
+            <th>FullName</th>
+            <th>ManagerId</th>
+            <th>DateOfJoining</th>
+            <th>City</th>
+            <th>Project</th>
+            <th>Salary</th>
+            <th>Variable</th>
+        </tr>
+        <tr>
+            <td>121</td>
+            <td>John Snow</td>
+            <td>321</td>
+            <td>31/01/2019</td>
+            <td>Toronto</td>
+            <td>P1</td>
+            <td>8000</td>
+            <td>500</td>
+        </tr>
+    </table> <br />
+
+    <p style="font-weight:600;">
+        3.Write an SQL query to fetch all those employees who work on Projects other than P1.
+    </p>
+
+    <p>Query1:</p>
+
+    <p>
+        SELECT DISTINCT ED.*
+        FROM EmployeeDetails ED
+        JOIN EmployeeSalary ES ON ES.EmpId = ED.EmpId
+        WHERE ES.Project <> 'P1';
+    </p>
+
+    <table>
+        <tr>
+            <th>EmpId</th>
+            <th>FullName</th>
+            <th>ManagerId</th>
+            <th>DateOfJoining</th>
+            <th>City</th>
+        </tr>
+        <tr>
+            <td>321</td>
+            <td>Walter White</td>
+            <td>986</td>
+            <td>30/01/2020</td>
+            <td>California</td>
+        </tr>
+    </table> <br />
+
+    <p>Query2:</p>
+
+    <p>
+        SELECT DISTINCT ED.*,ES.Project,ES.Salary,Es.Variable
+        FROM EmployeeDetails ED
+        JOIN EmployeeSalary ES ON ES.EmpId = ED.EmpId
+        WHERE ES.Project <> 'P1';
+    </p>
+
+    <table>
+        <tr>
+            <th>EmpId</th>
+            <th>FullName</th>
+            <th>ManagerId</th>
+            <th>DateOfJoining</th>
+            <th>City</th>
+            <th>Project</th>
+            <th>Salary</th>
+            <th>Variable</th>
+        </tr>
+        <tr>
+            <td>321</td>
+            <td>Walter White</td>
+            <td>986</td>
+            <td>30/01/2020</td>
+            <td>California</td>
+            <td>P2</td>
+            <td>10000</td>
+            <td>1000</td>
+        </tr>
+    </table>
+</div>
